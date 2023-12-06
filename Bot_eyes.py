@@ -1,40 +1,19 @@
 import time
+from Eye_arrays import standard_eyes, blink_eye, disgusting_face
 
-def draw_eyes():
-    eye_char = "O"
-    space_char = " "
-
-    # Standard/left eye
-    chris_and_serch = [
-        f"{space_char * 2}{eye_char * 5}{space_char * 6}{eye_char * 5}{space_char * 2}",
-        f"{space_char * 2}{eye_char * 5}{space_char * 6}{eye_char * 5}{space_char * 2}",
-        f"{space_char * 2}{eye_char * 5}{space_char * 6}{eye_char * 5}{space_char * 2}",
-        f"{space_char * 2}{eye_char * 5}{space_char * 6}{eye_char * 5}{space_char * 2}",
-        f"                                                                             "
-    ]
-
-    # Definition of left eye row
-    eye_rows = chris_and_serch
-
-    # blink
-    blink_eye_rows = [
-        f"{space_char * 2}{eye_char * 5}{space_char * 6}{eye_char * 5}{space_char * 2}",
-        f"{space_char * 2}{eye_char * 5}{space_char * 6}{eye_char * 5}{space_char * 2}",
-        f"{space_char * 2}{eye_char * 5}{space_char * 13}",
-        f"{space_char * 2}{eye_char * 1}{space_char * 6}{eye_char * 5}{space_char * 2}",
-        f"                                                                             "
-    ]
-
-    # Select expression (standard or blinking)
-    true_eyes = eye_rows
-    for row in true_eyes:
+def draw_eyes(eye_function):
+    eye_rows = eye_function()
+    for row in eye_rows:
         print(row)
+    print (f"  ")
+
+eyes_mode = blink_eye #final assignation
 
 if __name__ == "__main__":
     try:
         while True:
-            draw_eyes()
-            time.sleep(0.1) 
+            draw_eyes(eyes_mode)
+            time.sleep(2)
 
     except KeyboardInterrupt:
-        print("Saliendo del programa.")
+        print("BYE")
