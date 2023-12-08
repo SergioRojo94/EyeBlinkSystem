@@ -1,13 +1,13 @@
 import time
-from Eye_arrays import standard_eyes, blink_eye, disgusting_face
+from Behaviours import idle_look
 
 def draw_eyes(eye_function):
     eye_rows = eye_function()
     for row in eye_rows:
         print(row)
-    print (f"  ")
+    print ("  ")
 
-eyes_mode = blink_eye #final assignation
+eyes_mode = idle_look(0.7) #final assignation
 
 if __name__ == "__main__":
     try:
